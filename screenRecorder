@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+fileName="video"
+ffmpeg -f x11grab -y -framerate 30 -s 1920x1080 -i :0.0 -f pulse -i alsa_output.usb-Generalplus_Trust_PC_Headset_12821-00.analog-stereo.monitor "/home/sergio/Videos/${fileName}.mp4"
+ffmpeg -i "/home/sergio/Videos/${fileName}.mp4" -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p "/home/sergio/Videos/${fileName}_$(date +%Y-%m-%d_%H-%M-%S).mp4"
+rm "/home/sergio/Videos/${fileName}.mp4"
