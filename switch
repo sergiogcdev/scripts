@@ -12,7 +12,7 @@ if [ "$check_xmonad" = "$isTrue" ] && [ "$check_qtile" = "$isFalse" ];
 then
     rm ~/.xinitrc;
     ln -s ~/.config/xinitrc/qtilerc ~/.xinitrc;
-    sudo pkill -9 -u sergio;
+    pkill -9 -u $USER;
 fi
 
 # Checking if Qtile is running
@@ -20,5 +20,5 @@ if [ "$check_qtile" = "$isTrue" ] && [ "$check_xmonad" = "$isFalse" ];
 then
     rm ~/.xinitrc;
     ln -s ~/.config/xinitrc/xmonadrc ~/.xinitrc;
-    sudo pkill -9 -u sergio;
+    pkill -9 -u $USER;
 fi
