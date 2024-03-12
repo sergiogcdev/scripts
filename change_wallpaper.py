@@ -1,7 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from os import system as cmd
-
-# dir = "/home/sergio/Pictures/wallpapers/"
-command = "feh --randomize --bg-scale /home/sergio/Pictures/blackarchwallpapers/"
+command = "feh --randomize --bg-scale ${HOME}/pictures/wallpapers/"
 cmd(command)

@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+# INIT VARS #################################
+# CHECK WMs
+check_xmonad=$(neofetch | grep xmonad | wc -l)
+check_qtile=$(neofetch | grep LG3D | wc -l)
+# GET STRs
+getXMonad=$(echo ${check_xmonad})
+getQtile=$(echo ${check_qtile})
+isTrue=$(echo 1)
+isFalse=$(echo 0)
+# END VARS #################################
+
+# Checking if XMonad is running
+if [ $getXMonad == $isTrue ] && [ $getQtile == $isFalse ];
+then
+    rm ~/.xinitrc;
+    ln -s ~/.config/xinitrc/qtilerc ~/.xinitrc;
+    sudo pkill -9 -u sergio;
+fi
+
+# Checking if Qtile is running
+if [ $getQtile == $isTrue ] && [ $getXMonad == $isFalse ];
+then
+    rm ~/.xinitrc;
+    ln -s ~/.config/xinitrc/xmonadrc ~/.xinitrc;
+    sudo pkill -9 -u sergio;
+fi
