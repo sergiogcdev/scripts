@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+# execute this script at the end of ~/.profile file
+
+echo "Choose WM"
+echo "######################"
+echo "(1) XMonad"
+echo "(2) Qtile"
+echo "default: XMonad"
+read wm
+
+if [ "$wm" = "2" ]; then
+    rm ~/.xinitrc;
+    ln -s ~/.config/xinitrc/qtilerc ~/.xinitrc;
+else
+    rm ~/.xinitrc;
+    ln -s ~/.config/xinitrc/xmonadrc ~/.xinitrc;
+fi
+
+startx
